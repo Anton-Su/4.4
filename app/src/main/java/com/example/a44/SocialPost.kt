@@ -10,5 +10,10 @@ data class SocialPost(
     val title: String,
     @SerialName(value = "body")
     val text: String,
-    val avatarUrl: String
+    val avatarUrl: String,
+)
+
+data class SocialPostWithComments(
+    val post: SocialPost,
+    val comments: List<Comment>
 )
