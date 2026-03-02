@@ -17,8 +17,4 @@ class PostsRepImpl(private val dataSource: JsonDataSource): PostsRep {
         delay(1000)
         return posts ?: emptyList()
     }
-
-//    override suspend fun getPostById(id: Int): SocialPost {
-//        TODO("Not yet implemented")
-//    }
 }
