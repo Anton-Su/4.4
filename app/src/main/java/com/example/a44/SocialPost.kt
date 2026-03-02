@@ -12,8 +12,3 @@ data class SocialPost(
     val text: String,
     val avatarUrl: String,
 )
-
-data class SocialPostWithComments(
-    val post: SocialPost,
-    val comments: List<Comment>
-)
