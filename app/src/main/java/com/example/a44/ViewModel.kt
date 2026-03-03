@@ -70,10 +70,10 @@ class ViewModel(private val getAllPosts: GetAllPostsUseCase, private val getAllC
                 } catch (e: Exception) {
                     Log.e("ViewModel", "Error loading comments for post ${post.id}: ${e.message}")
                     _postsState.value = _postsState.value.map { p ->
-                        if (p.postWithComments.post  == post) p.copy(state = UiState.Error(e.message ?: "Unknown Error"))
+                        if (p.postWithComments.post.id  == post.id) p.copy(state = UiState.Error(e.message ?: "Unknown Error"))
                         else p
-                    } }
-
+                    }
+                }
             }
         }
     }
