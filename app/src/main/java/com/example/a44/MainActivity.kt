@@ -91,16 +91,15 @@ fun Greeting(modifier: Modifier = Modifier, viewModel: ViewModel) {
             items(postStates.value.size) { index ->
                 val post = postStates.value[index].postWithComments.post
                 val comments = postStates.value[index].postWithComments.comments
-                when (postStates.value[index].state) {
+                when (val state = postStates.value[index].state) {
                     is UiState.Loading -> Text(
                         text = "Загрузка...",
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Center
                     )
-
                     is UiState.Error -> Text(
-                        text = "Ошибка загрузки данных",
+                        text = UiState.Error(state.message).toString(),
                         style = MaterialTheme.typography.titleMedium,
                         modifier = Modifier.fillMaxWidth(),
                         textAlign = TextAlign.Center
